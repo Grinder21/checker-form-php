@@ -8,8 +8,8 @@
     if (isset($_FILES['photo']) && $_POST['form-checker'] && (!$error)) {
         try {
             $infoFormat = new SplFileInfo($_FILES['photo']['name']);
-            $fileSize = filesize($_FILES['photo']['name']);
-            if (($infoFormat == 'PNG' || $infoFormat == 'JPG') && ($fileSize <= 2048)) {
+            $file = $_FILES['photo']['name'];
+                if (($infoFormat == 'PNG' || $infoFormat == 'JPG') && (filesize($file <= 2048))) {
                 $_SESSION['sent']++;
                 $error['sent'] = 'ok';
                 $path = 'C:/xampp/htdocs/session_php/images';
