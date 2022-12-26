@@ -22,7 +22,6 @@
             echo $e->getMessage();
         }
     }
-var_dump($_FILES);
 ?>
 
 <html>
@@ -30,6 +29,5 @@ var_dump($_FILES);
     <input type="hidden" name="form-checker" value="1">
     <input type="file" name="photo">
     <input type="submit" value="Отправить файл">
-    <img src="<?php echo './images' . $_FILES['photo']['name']; ?> />
 </form>
 </html>
