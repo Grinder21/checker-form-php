@@ -9,14 +9,13 @@
         try {
             $infoFormat = new SplFileInfo($_FILES['photo']['name']);
             $file = $_FILES['photo']['name'];
-                if (($infoFormat == 'PNG' || $infoFormat == 'JPG') && (filesize($file <= 2048))) {
+                if (($infoFormat == 'PNG' || $infoFormat == 'JPG') && ($_FILES['photo']['size'] <= 2000000)) {
                 $_SESSION['sent']++;
-                $error['sent'] = 'ok';
+                $error['sent'] = 'performed';
                 $path = 'C:/xampp/htdocs/session_php/images';
                 mkdir($path, 0777, true);
                 move_uploaded_file($_FILES['photo']['tmp_name'], './images' . $_FILES['photo']['name']);
                 header('Location: http://localhost/session_php/images/' . $_FILES['photo']['name']);
-
             }
         } catch (Exception $e) {
             echo $e->getMessage();
