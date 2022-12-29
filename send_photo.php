@@ -5,7 +5,7 @@
         $_SESSION['sent'] = 0;
     }
 
-    if (isset($_FILES['photo']) && $_POST['form-checker'] && (!$error)) {
+    if (isset($_FILES['photo'])) {
         try {
             $infoFormat = new SplFileInfo($_FILES['photo']['name']);
             $file = $_FILES['photo']['name'];
