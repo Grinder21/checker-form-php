@@ -8,6 +8,7 @@
     if (isset($_FILES['photo'])) {
         try {
             $infoFormat = new SplFileInfo($_FILES['photo']['name']);
+            $infoFormat->getExtension();
             $file = $_FILES['photo']['name'];
                 if (($infoFormat == 'PNG' || $infoFormat == 'JPG') && ($_FILES['photo']['size'] <= 2000000)) {
                 $_SESSION['sent']++;
