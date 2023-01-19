@@ -2,7 +2,7 @@
 <head>
 </head>
 <body>
-<form action="HtmlProcessor.php" method="POST">
+<form action="html_import_processor.php" method="POST">
     <label for="enter-text">Ссылка веб-ресурса: </label>
     <input type="text" name="enter-url">
     <input type="submit" value="Отправить адрес">
