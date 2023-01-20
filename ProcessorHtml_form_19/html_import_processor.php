@@ -22,14 +22,19 @@ curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
 curl_setopt($curl, CURLOPT_PORT, 443);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-$urlContent = curl_exec($curl);
 
 $array_to_json = array('raw_text' => curl_exec($curl));
 $json = json_encode($array_to_json);
+
+curl_close($curl);
+
+$curl = curl_init();
 curl_setopt($curl, CURLOPT_POSTFIELDS, $json);
 curl_setopt($curl, CURLOPT_URL, '/localhost/HtmlProcessor.php');
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($curl, CURLOPT_HEADER, 0);
+curl_exec($curl);
+
 curl_close($curl);
 
 var_dump($array_to_json);
